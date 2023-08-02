@@ -34,6 +34,7 @@ issueIds1=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfi
 issueIds2=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
 issueIds3=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
 issueIds4=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
+echo $issueName
 echo $issueIds1
 echo $issueIds2
 echo $issueIds3
