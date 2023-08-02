@@ -21,7 +21,7 @@ url='https://xray.cloud.getxray.app/api/v2/graphql'
 #query='{
 #    "query": "{ getTestPlans(jql: \"project = 'PX'\", limit: 10) { results { issueId }}"}'
 query='{
-    "query": "{ getTestPlans(jql: \"project = PX\", limit: 10 ) { results { issueId jira(fields: [\"Key\", \"summary\", \"customfield_10037\", \"customfield_10106\",\"customfield_10107\",\"customfield_10108\" ]) } } }"
+    "query": "{ getTestPlans(jql: \"project = PX\", limit: 10 ) { results { issueId jira(fields: [\"key\", \"summary\", \"customfield_10037\", \"customfield_10106\",\"customfield_10107\",\"customfield_10108\" ]) } } }"
 }'
 
 # Realizamos la petición con curl y guardamos la respuesta
