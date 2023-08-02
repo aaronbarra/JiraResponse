@@ -29,6 +29,7 @@ query='{
 curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url > result.json
 
 # Imprime la respuesta
+issueName=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.summary')
 issueIds1=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
 issueIds2=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
 issueIds3=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
