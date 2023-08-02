@@ -19,7 +19,7 @@ url='https://xray.cloud.getxray.app/api/v2/graphql'
 # La consulta GraphQL
 # Define la consulta GraphQL
 query='{
-    "query": "{ getTestPlans(jql: \"project = 'PX'\", limit: 10) { results { issueId jira(fields: [\"summary\", \"customfield_10037\", \"customfield_10106\", \"customfield_10107\", \"customfield_10108\"])
+    "query": "{ getTestPlans(jql: \"project = 'PX'\", limit: 20) { results { issueId jira(fields: [\"summary\", \"customfield_10037\", \"customfield_10106\", \"customfield_10107\", \"customfield_10108\"])
         }
     }
 }"
