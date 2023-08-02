@@ -26,13 +26,13 @@ query='{
 }'
 
 # Realizamos la petición con curl y guardamos la respuesta
-response1=$(curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url)
+response1=$(curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url) > result.json
 
 # Imprime la respuesta
-issueIds1=$(echo $response1 | jq -r '.data.getTestPlan.jira.customfield_10037')
-issueIds2=$(echo $response1 | jq -r '.data.getTestPlan.jira.customfield_10106')
-issueIds3=$(echo $response1 | jq -r '.data.getTestPlan.jira.customfield_10107')
-issueIds4=$(echo $response1 | jq -r '.data.getTestPlan.jira.customfield_10108')
+issueIds1=$(cat result.json | jq -r '.data.getTestPlan.jira.customfield_10037')
+issueIds2=$(cat result.json | jq -r '.data.getTestPlan.jira.customfield_10106')
+issueIds3=$(cat result.json | jq -r '.data.getTestPlan.jira.customfield_10107')
+issueIds4=$(cat result.json | jq -r '.data.getTestPlan.jira.customfield_10108')
 echo $issueIds1
 echo $issueIds2
 echo $issueIds3
