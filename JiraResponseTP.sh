@@ -21,7 +21,7 @@ url='https://xray.cloud.getxray.app/api/v2/graphql'
 #query='{
 #    "query": "{ getTestPlans(jql: \"project = 'PX'\", limit: 10) { results { issueId }}"}'
 query='{
-    "query": "{ getTestPlans(jql: \"project = PX\", limit: 10 ) { results { issueId jira(fields: [\"summary\", \"customfield_10037\", \"customfield_10106\",\"customfield_10107\",\"customfield_10108\" ]) } } }"
+    "query": "{ getTestPlans(jql: \"project = PX\", limit: 1 ) { results { issueId jira(fields: [\"summary\", \"customfield_10037\", \"customfield_10106\",\"customfield_10107\",\"customfield_10108\" ]) } } }"
 }'
 
 # Realizamos la petición con curl y guardamos la respuesta
@@ -29,27 +29,18 @@ query='{
 curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url > result.json
 
 # Imprime la respuesta
-issueName=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.summary')
-issueIds1=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
-issueIds2=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
-issueIds3=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
-issueIds4=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
-echo $issueName
-echo $issueIds1
-echo $issueIds2
-echo $issueIds3
-echo $issueIds4
+#issueName=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.summary')
+#issueIds1=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
+#issueIds2=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
+#issueIds3=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
+#issueIds4=$(cat result.json | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
 
 
 # Realizamos la petición con curl y guardamos la respuesta
-response1=$(curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url)
+#response1=$(curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url)
 
 # Imprime la respuesta
-issueIds5=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
-issueIds6=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
-issueIds7=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
-issueIds8=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
-echo $issueIds5
-echo $issueIds6
-echo $issueIds7
-echo $issueIds8
+#issueIds5=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
+#issueIds6=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
+#issueIds7=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
+#issueIds8=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
