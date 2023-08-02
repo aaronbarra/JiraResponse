@@ -11,7 +11,7 @@ response=$(curl --silent --location 'https://xray.cloud.getxray.app/api/v2/authe
 token=$(echo $response | jq -r '')
 
 # Imprimimos el token
-#echo $token
+echo $token
 
 # Reemplaza esto con la URL de tu endpoint GraphQL
 url='https://xray.cloud.getxray.app/api/v2/graphql'
