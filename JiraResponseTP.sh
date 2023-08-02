@@ -26,10 +26,10 @@ query='{
 response1=$(curl --silent -X POST -H "Content-Type: application/json" -H "Authorization: Bearer $token" -d "$query" $url)
 
 # Imprime la respuesta
-issueIds1=$(echo $response1 | jq -r '.data.getTestPlans.jira.customfield_10037')
-issueIds2=$(echo $response1 | jq -r '.data.getTestPlans.jira.customfield_10106')
-issueIds3=$(echo $response1 | jq -r '.data.getTestPlans.jira.customfield_10107')
-issueIds4=$(echo $response1 | jq -r '.data.getTestPlans.jira.customfield_10108')
+issueIds1=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10037')
+issueIds2=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10106')
+issueIds3=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10107')
+issueIds4=$(echo $response1 | jq -r '.data.getTestPlans.results[0].jira.customfield_10108')
 echo $issueIds1
 echo $issueIds2
 echo $issueIds3
